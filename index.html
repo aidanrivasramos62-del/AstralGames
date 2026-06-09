@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>AstralGames</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+
+  /* 🔥 Fondo Minecraft real */
+  background: url("https://wallpapercave.com/wp/wp7422520.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  color: white;
+}
+
+/* TOP BAR */
+.dev {
+  text-align: center;
+  background: #f2c94c;
+  color: black;
+  font-weight: bold;
+  padding: 10px;
+}
+
+/* HEADER */
+header {
+  text-align: center;
+  padding: 40px;
+  background: rgba(0,0,0,0.75);
+  border-bottom: 4px solid #55ff55;
+}
+
+h1 {
+  margin: 0;
+  font-size: 50px;
+  color: #55ff55;
+  text-shadow: 3px 3px black;
+}
+
+/* SECTIONS */
+section {
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  font-size: 26px;
+  margin: 20px;
+  color: #ffff55;
+  text-shadow: 2px 2px black;
+}
+
+/* INVENTORY STYLE GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+/* SLOT STYLE */
+.card {
+  background: rgba(30, 30, 30, 0.85);
+  border: 2px solid #555;
+  padding: 10px;
+  text-align: center;
+  transition: 0.2s;
+  box-shadow: inset 0 0 10px black;
+}
+
+.card:hover {
+  border: 2px solid #55ff55;
+  transform: scale(1.05);
+}
+
+/* ITEM STYLE */
+.item {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+/* PRICE */
+.price {
+  color: #00ff99;
+  font-weight: bold;
+}
+
+/* BUTTON */
+.btn {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 10px;
+  background: #3aa655;
+  border: 2px solid #1e6b33;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: #55ff55;
+  color: black;
+}
+
+/* CART (LIKE INVENTORY PANEL) */
+.cart {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  width: 230px;
+  background: rgba(0,0,0,0.85);
+  border: 3px solid #555;
+  padding: 10px;
+}
+
+.cart h3 {
+  color: #ffff55;
+}
+
+.paypal {
+  width: 100%;
+  background: gold;
+  color: black;
+  margin-top: 10px;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background: rgba(0,0,0,0.75);
+  margin-top: 30px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="dev">
+🚧 Empezando desarrollo del servidor AstralGames 🚧
+</div>
+
+<header>
+<h1>☄️ ASTRALGAMES</h1>
+<p>PvP • Parkour • TNT Run • Backrooms</p>
+</header>
+
+<!-- CART -->
+<div class="cart">
+<h3>🧺 Inventario de compra</h3>
+<ul id="list"></ul>
+<p>Total: $<span id="total">0</span></p>
+
+<a class="btn paypal" href="https://paypal.me/ASTRALGAMES170" target="_blank">
+Pagar en PayPal
+</a>
+</div>
+
+<!-- MODES -->
+<section>
+<div class="title">🎮 Modalidades</div>
+
+<div class="grid">
+
+<div class="card">⚔ PvP</div>
+<div class="card">🧗 Parkour</div>
+<div class="card">💣 TNT Run</div>
+<div class="card">🕶 Backrooms</div>
+
+</div>
+</section>
+
+<!-- SHOP -->
+<section>
+<div class="title">🛒 Tienda de Kits</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="item">🗡 Guerrero Astral</div>
+<div class="price">5$</div>
+<button class="btn" onclick="add('Guerrero',5)">Comprar</button>
+</div>
+
+<div class="card">
+<div class="item">🌑 Sombra PvP</div>
+<div class="price">7$</div>
+<button class="btn" onclick="add('Sombra',7)">Comprar</button>
+</div>
+
+<div class="card">
+<div class="item">🧗 Parkour Pro</div>
+<div class="price">6$</div>
+<button class="btn" onclick="add('Parkour',6)">Comprar</button>
+</div>
+
+<div class="card">
+<div class="item">💣 TNT Destroyer</div>
+<div class="price">8$</div>
+<button class="btn" onclick="add('TNT',8)">Comprar</button>
+</div>
+
+<div class="card">
+<div class="item">⭐ VIP Astral</div>
+<div class="price">10$</div>
+<button class="btn" onclick="add('VIP',10)">Comprar</button>
+</div>
+
+</div>
+</section>
+
+<footer>
+© 2026 AstralGames - Minecraft Server
+</footer>
+
+<script>
+let total = 0;
+
+function add(name, price){
+  let li = document.createElement("li");
+  li.textContent = name + " $" + price;
+  document.getElementById("list").appendChild(li);
+
+  total += price;
+  document.getElementById("total").innerText = total;
+}
+</script>
+
+</body>
+</html>
